@@ -54,4 +54,11 @@ public class ClienteNegocio {
 			throw new ClienteExcecoes("Algo errado com o cpf");
 		}
 	}
+	
+	public Cliente pesquisarClienteNaCompra(String cpf) {
+		verificarCpf(cpf);
+		Cliente cli = cliPers.verificarSeExisteId(cpf);
+		return cli;
+		
+	}
 }

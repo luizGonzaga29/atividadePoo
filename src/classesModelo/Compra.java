@@ -52,6 +52,7 @@ public class Compra {
 	}
 	
 	public void addItem(ItemCompra it) {
+		total+=it.getServico().getPreco();
 		this.itens.add(it);
 	}
 	
@@ -77,7 +78,7 @@ public class Compra {
     }	
 	@Override
 	public String toString() {
-		return "Compra [idCompra=" + idCompra + ", dataCompra=" + sdf.format(dataCompra) + ", itens=" + itens + "]";
+		return "Compra [idCompra=" + idCompra + " valor total=" + total + ", dataCompra=" + sdf.format(dataCompra) + ", itens=" + itens + "]";
 	}
 	
 	

@@ -12,7 +12,9 @@ import java.util.List;
 import classesNegocio.ClienteNegocio;
 import classesNegocio.CombustivelNegocio;
 import classesNegocio.ItemCompraNegocio;
+import classesNegocio.LavagemNegocio;
 import constantes.Ecombustivel;
+import constantes.Elavagem;
 import excecoes.ClienteExcecoes;
 
 
@@ -24,20 +26,33 @@ public class Teste {
 		//Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date d = sdf.parse("29/05/1980");
-		ClienteNegocio cliNeg = new ClienteNegocio();
-		/*List<Cliente> listaCli;
-				
-		ItemCompra it = new ItemCompra(new Combustivel( Ecombustivel.GAS_COMUM.getVenda(),
-				10.00, Ecombustivel.GAS_COMUM.getDescricao(), 1, 10.00));
-		ItemCompraNegocio icn = new ItemCompraNegocio();*/
-		Cliente cli = new Cliente("Fulano", "22222222222", d, "fulano@fulano.com");
+		//ClienteNegocio cliNeg = new ClienteNegocio();
+		//List<Cliente> listaCli;
+		
+		
+		//Cliente cli = new Cliente("Fulano", "22222222222", d, "fulano@fulano.com");
 		try {
 			//Cliente cli = new Cliente("Fulano", "11111111112", d, "m");
 			//cliNeg.inserirCliente(cli);
 			//cliNeg.deletarCliente(cli.getCpf());
-			System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
+			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.listarClientes());
+			
+			ItemCompra it = new ItemCompra(new Combustivel( Ecombustivel.GAS_COMUM.getVenda(),
+					10.00, Ecombustivel.GAS_COMUM.getDescricao(), 1, 10.00));
+			
+			ItemCompra it1 = new ItemCompra(new Lavagem(Elavagem.SIMPLES.getPreco(),
+							10.00, Elavagem.SIMPLES.getDescricao()));
+			
+			CombustivelNegocio cn = new CombustivelNegocio();
+			LavagemNegocio ln = new LavagemNegocio();
+			it = cn.definirDesconto(it, "33333333333");
+			it1 = ln.definirDesconto(it1, "33333333333");
+			Compra compra = new Compra(d, 0.0, "33333333333");
+			compra.addItem(it);
+			compra.addItem(it1);
+			System.out.println(compra);
 		}catch (ClienteExcecoes e) {
 			System.out.println(e.getMessage());
 		}catch (Exception e) {
