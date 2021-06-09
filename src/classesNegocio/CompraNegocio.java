@@ -1,22 +1,16 @@
 package classesNegocio;
 
-import classesModelo.Compra;
 import classesModelo.ItemCompra;
 
 public class CompraNegocio {
 
+	private CriadorItemCompraNegocio criadorItemCompraNegocio;
 	
-	
-	public double somarTotal(Compra compra) {
-		double total = 0.0;
-		for(ItemCompra itens: compra.resgatarItens()) {
-			total+=itens.getServico().getPreco();
-		}
-		return total;
+	public CompraNegocio(CriadorItemCompraNegocio criadorItemCompraNegocio) {
+		this.criadorItemCompraNegocio = criadorItemCompraNegocio;	
 	}
 	
-	/*public double aplicarDesconto(String cpf) {
-		ClienteNegocio cliNeg = new ClienteNegocio();
-		
-	}*/
+	public ItemCompra definirItemCompra(ItemCompra itemCompra, String cpf) {
+		return criadorItemCompraNegocio.criarServico().definirDesconto(itemCompra, cpf);
+	}
 }

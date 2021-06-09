@@ -52,7 +52,7 @@ public class Compra {
 	}
 	
 	public void addItem(ItemCompra it) {
-		total+=it.getServico().getPreco();
+		this.total+=it.getServico().getPreco();
 		this.itens.add(it);
 	}
 	

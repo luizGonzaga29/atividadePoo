@@ -11,7 +11,10 @@ import java.util.List;
 
 import classesNegocio.ClienteNegocio;
 import classesNegocio.CombustivelNegocio;
-import classesNegocio.ItemCompraNegocio;
+import classesNegocio.CompraNegocio;
+import classesNegocio.CriadorCombustivelNegocio;
+import classesNegocio.CriadorItemCompraNegocio;
+import classesNegocio.CriadorLavagemNegocio;
 import classesNegocio.LavagemNegocio;
 import constantes.Ecombustivel;
 import constantes.Elavagem;
@@ -38,21 +41,33 @@ public class Teste {
 			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.listarClientes());
+			String cpf = "22222222222";
 			
 			ItemCompra it = new ItemCompra(new Combustivel( Ecombustivel.GAS_COMUM.getVenda(),
 					10.00, Ecombustivel.GAS_COMUM.getDescricao(), 1, 10.00));
 			
 			ItemCompra it1 = new ItemCompra(new Lavagem(Elavagem.SIMPLES.getPreco(),
 							10.00, Elavagem.SIMPLES.getDescricao()));
+			CriadorItemCompraNegocio criadorItemCompraNegocio = new CriadorCombustivelNegocio();
+			CompraNegocio cn = new CompraNegocio(criadorItemCompraNegocio);
+			Compra compra = new Compra(d, 0.0, cpf);
+			it = cn.definirItemCompra(it, cpf);
 			
-			CombustivelNegocio cn = new CombustivelNegocio();
+			CriadorItemCompraNegocio criadorItemCompraNegocio1 = new CriadorLavagemNegocio();
+			CompraNegocio cn1 = new CompraNegocio(criadorItemCompraNegocio1);
+			it1 = cn1.definirItemCompra(it1, cpf);
+			
+			compra.addItem(it);
+			compra.addItem(it1);
+			System.out.println(compra);
+			/*CombustivelNegocio cn = new CombustivelNegocio();
 			LavagemNegocio ln = new LavagemNegocio();
-			it = cn.definirDesconto(it, "33333333333");
+			it = cn.definirDesconto(it, "3a333333333");
 			it1 = ln.definirDesconto(it1, "33333333333");
 			Compra compra = new Compra(d, 0.0, "33333333333");
 			compra.addItem(it);
 			compra.addItem(it1);
-			System.out.println(compra);
+			System.out.println(compra);*/
 		}catch (ClienteExcecoes e) {
 			System.out.println(e.getMessage());
 		}catch (Exception e) {
