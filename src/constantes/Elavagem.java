@@ -3,7 +3,7 @@ package constantes;
 public enum Elavagem {
 
 	SIMPLES(1, 30.00, "Simples"),
-    ESPECIAL(2, 45.00, "Especial");
+    COMPLETA(2, 45.00, "Completa");
 	
 	private int codLavagem;
     private double preco;

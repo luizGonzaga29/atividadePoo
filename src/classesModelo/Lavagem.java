@@ -6,13 +6,13 @@ public class Lavagem extends Servico{
 	
 	public Lavagem() {}
 	
-	public Lavagem(Integer id, Double preco, Double desconto, String tipoLavagem) {
-		super(id, preco, desconto);
+	public Lavagem(Integer id, Double preco, Double desconto, String tipoServico, String tipoLavagem) {
+		super(id, preco, desconto, tipoServico);
 		this.tipoLavagem = tipoLavagem;
 	}
-	
-	public Lavagem(Double preco, Double desconto, String tipoLavagem) {
-		super(preco, desconto);
+
+	public Lavagem(Double preco, Double desconto, String tipoServico, String tipoLavagem) {
+		super(preco, desconto, tipoServico);
 		this.tipoLavagem = tipoLavagem;
 	}
 

@@ -4,16 +4,60 @@ public class ItemCompra {
 
 	private Integer idItemCompra;
 	private Servico servico;
+	private int idCompra;
+	private Double preco;
+	private Double desconto;
+	private Double quantidade;
 	
 	public ItemCompra() {}
 
-	public ItemCompra(Integer idItemCompra, Servico servico) {
+	public ItemCompra(Integer idItemCompra, Servico servico, int idCompra, Double preco, Double desconto,
+			Double quantidade) {
+		super();
 		this.idItemCompra = idItemCompra;
 		this.servico = servico;
+		this.idCompra = idCompra;
+		this.preco = preco;
+		this.desconto = desconto;
+		this.quantidade = quantidade;
+	}
+
+	public ItemCompra(Servico servico, int idCompra, Double quantidade ) {
+		this.servico = servico;
+		this.idCompra = idCompra;
+		this.quantidade = quantidade;
 	}
 	
-	public ItemCompra(Servico servico) {
-		this.servico = servico;
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+
+	public Double getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Double quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public int getIdCompra() {
+		return idCompra;
+	}
+
+	public void setIdCompra(int idCompra) {
+		this.idCompra = idCompra;
 	}
 
 	public Integer getIdItemCompra() {
@@ -30,6 +74,9 @@ public class ItemCompra {
 
 	@Override
 	public String toString() {
-		return "ItemCompra [idItemCompra=" + idItemCompra + ", servico=" + servico + "]";
+		return "ItemCompra [idItemCompra=" + idItemCompra + ", servico=" + servico + ", idCompra=" + idCompra
+				+ ", preco=" + preco + ", desconto=" + desconto + ", quantidade=" + quantidade + "]";
 	}
+
+	
 }

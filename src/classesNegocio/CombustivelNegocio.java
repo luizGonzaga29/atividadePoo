@@ -12,7 +12,7 @@ public class CombustivelNegocio extends ServicoNegocio {
 	@Override
 	public ItemCompra definirDesconto(ItemCompra itemCompra, String cpf) {
 		combustivel = (Combustivel) itemCompra.getServico();
-		double valor = combustivel.getPreco() * combustivel.getQtdLitros();
+		double valor = combustivel.getPreco() * itemCompra.getQuantidade();
 		valor = (cliNeg.pesquisarClienteNaCompra(cpf) == null) ? valor :
 			valor - (valor * combustivel.getDesconto() / 100);
 		combustivel.setPreco(valor);

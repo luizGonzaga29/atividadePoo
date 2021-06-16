@@ -19,6 +19,7 @@ import classesNegocio.LavagemNegocio;
 import constantes.Ecombustivel;
 import constantes.Elavagem;
 import excecoes.ClienteExcecoes;
+import excecoes.CompraExcecoes;
 
 
 
@@ -28,26 +29,30 @@ public class Teste {
 	public static void main(String[] args) throws ParseException {
 		//Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		Date d = sdf.parse("29/05/1980");
-		//ClienteNegocio cliNeg = new ClienteNegocio();
-		//List<Cliente> listaCli;
-		
+		Date d = new Date();
+		ClienteNegocio cliNeg = new ClienteNegocio();
+		List<Cliente> listaCli;
+		String cpf = "11111111112";
 		
 		//Cliente cli = new Cliente("Fulano", "22222222222", d, "fulano@fulano.com");
 		try {
+			//listaCli = cliNeg.listarClientes();
+			//System.out.println(cliNeg.pesquisarCliente("22222222222"));
+			//cliNeg.deletarCliente("11111111112");
 			//Cliente cli = new Cliente("Fulano", "11111111112", d, "m");
 			//cliNeg.inserirCliente(cli);
 			//cliNeg.deletarCliente(cli.getCpf());
 			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.pesquisarCliente(cli.getCpf()));
 			//System.out.println(cliNeg.listarClientes());
-			String cpf = "22222222222";
+			/*String cpf = "38200759415";
 			
 			ItemCompra it = new ItemCompra(new Combustivel( Ecombustivel.GAS_COMUM.getVenda(),
-					10.00, Ecombustivel.GAS_COMUM.getDescricao(), 1, 10.00));
+					10.00,"comb" ,Ecombustivel.GAS_COMUM.getDescricao(), 1), 1, 10.00);
 			
 			ItemCompra it1 = new ItemCompra(new Lavagem(Elavagem.SIMPLES.getPreco(),
-							10.00, Elavagem.SIMPLES.getDescricao()));
+							10.00,"lav" ,Elavagem.SIMPLES.getDescricao()), 1, 2.00);
+			
 			CriadorItemCompraNegocio criadorItemCompraNegocio = new CriadorCombustivelNegocio();
 			CompraNegocio cn = new CompraNegocio(criadorItemCompraNegocio);
 			Compra compra = new Compra(d, 0.0, cpf);
@@ -59,7 +64,7 @@ public class Teste {
 			
 			compra.addItem(it);
 			compra.addItem(it1);
-			System.out.println(compra);
+			System.out.println(compra);*/
 			/*CombustivelNegocio cn = new CombustivelNegocio();
 			LavagemNegocio ln = new LavagemNegocio();
 			it = cn.definirDesconto(it, "3a333333333");
@@ -68,7 +73,15 @@ public class Teste {
 			compra.addItem(it);
 			compra.addItem(it1);
 			System.out.println(compra);*/
+			//38200759415
+			Compra compra = new Compra(d, cpf);
+			CompraNegocio cn = new CompraNegocio();
+			//cn.inserirCompra(compra);
+			cn.deletarCompra(25);
+			//System.out.println(cn.listarComprasPeloCpf(cpf));
 		}catch (ClienteExcecoes e) {
+			System.out.println(e.getMessage());
+		}catch (CompraExcecoes e) {
 			System.out.println(e.getMessage());
 		}catch (Exception e) {
 			System.out.println(e.getMessage());

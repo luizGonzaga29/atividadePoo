@@ -18,12 +18,12 @@ public class ClientePersistencia {
 		Cliente cli = null;
 		try {
 			con = Conexao.getConnection();
-			String sql = "SELECT * FROM cliente WHERE cpf = " + cpf;
+			String sql = "SELECT * FROM tb_cliente WHERE cli_CPF_pk = " + cpf;
 			pstm = con.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
 			if(rs.next()) {
-				cli = new Cliente(rs.getString("nome"), rs.getString("cpf"),
-				rs.getDate("data"), rs.getString("email"));
+				cli = new Cliente(rs.getString("cli_nome"), rs.getString("cli_CPF_pk"),
+				rs.getDate("cli_diames_nascto"), rs.getString("cli_email"));
 			}
 			Conexao.closeConnection();
 			pstm.close();
@@ -37,7 +37,7 @@ public class ClientePersistencia {
 	public void inserirCliente(Cliente cli) {
 		try {
 			con = Conexao.getConnection();
-			String sql = "INSERT INTO cliente(cpf, nome, data, email) VALUES(?,?,?,?)";
+			String sql = "INSERT INTO tb_cliente(cli_CPF_pk, cli_nome, cli_diames_nascto, cli_email) VALUES(?,?,?,?)";
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, cli.getCpf());
 			pstm.setString(2, cli.getNome());
@@ -47,7 +47,7 @@ public class ClientePersistencia {
 			pstm.close();
 			Conexao.closeConnection();
 		}catch (SQLException e) {
-			System.out.println("erro no inserir : " + e.getMessage());
+			System.out.println("erro no inserir cliente : " + e.getMessage());
 			
 		}
 	}
@@ -56,13 +56,13 @@ public class ClientePersistencia {
 		List<Cliente> listacli = new ArrayList<Cliente>();
 		try {
 			con = Conexao.getConnection();
-			String sql = "Select * FROM cliente";
+			String sql = "Select * FROM tb_cliente";
 			pstm = con.prepareStatement(sql);
 			ResultSet rs  = pstm.executeQuery();
 			
 			while(rs.next()) {
-				listacli.add(new Cliente(rs.getString("nome"), rs.getString("cpf"),
-				rs.getDate("data"), rs.getString("email")));
+				listacli.add(new Cliente(rs.getString("cli_nome"), rs.getString("cli_CPF_pk"),
+				rs.getDate("cli_diames_nascto"), rs.getString("cli_email")));
 				
 			}
 			pstm.execute();
@@ -77,7 +77,7 @@ public class ClientePersistencia {
 	
 	public void deletarCliente(String cpf) {
 		
-		String sql = "DELETE FROM cliente WHERE cpf =?";
+		String sql = "DELETE FROM tb_cliente WHERE cli_CPF_pk =?";
 		
 		try {
 			con = Conexao.getConnection();

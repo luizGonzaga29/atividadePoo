@@ -51,7 +51,7 @@ public class ClienteNegocio {
 	
 	public void verificarCpf(String cpf) {
 		if(cpf.length() != 11  || !cpf.matches("^[0-9]*$")) {
-			throw new ClienteExcecoes("Algo errado com o cpf");
+			throw new ClienteExcecoes("Algo errado com o cpf, o mesmo deve conter apenas 11 números");
 		}
 	}
 	

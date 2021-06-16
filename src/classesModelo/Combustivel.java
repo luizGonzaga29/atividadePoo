@@ -4,23 +4,26 @@ public class Combustivel extends Servico {
 	
 	private String tipoDeCombustivel;
 	private Integer bomba;
-	private Double qtdLitros;
 	
 	public Combustivel() {}
 	
-	public Combustivel(Integer id, Double preco, Double desconto, String tipoDeCombustivel, Integer bomba, Double qtdLitros) {
-		super(id, preco, desconto);
+	public Combustivel(Integer id, Double preco, Double desconto, String tipoServico, String tipoDeCombustivel,
+			Integer bomba) {
+		super(id, preco, desconto, tipoServico);
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		this.bomba = bomba;
-		this.qtdLitros = qtdLitros;
+		
 	}
 	
-	public Combustivel(Double preco, Double desconto, String tipoDeCombustivel, Integer bomba, Double qtdLitros) {
-		super(preco, desconto);
+	public Combustivel(Double preco, Double desconto, String tipoServico, String tipoDeCombustivel,
+			Integer bomba ) {
+		super(preco, desconto, tipoServico);
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		this.bomba = bomba;
-		this.qtdLitros = qtdLitros;
+		
 	}
+
+
 
 	public String getTipoDeCombustivel() {
 		return tipoDeCombustivel;
@@ -38,17 +41,10 @@ public class Combustivel extends Servico {
 		this.bomba = bomba;
 	}
 
-	public Double getQtdLitros() {
-		return qtdLitros;
-	}
-
-	public void setQtdLitros(Double qtdLitros) {
-		this.qtdLitros = qtdLitros;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "Combustivel [tipoDeCombustivel=" + tipoDeCombustivel + ", bomba=" + bomba + ", qtdLitros=" + qtdLitros
+		return "Combustivel [tipoDeCombustivel=" + tipoDeCombustivel + ", bomba=" + bomba  
 				+ ", getId()=" + getId() + ", getPreco()=" + getPreco() + ", getDesconto()=" + getDesconto() + "]";
 	}
 	

@@ -24,11 +24,17 @@ public class Compra {
 		this.itens = new ArrayList<ItemCompra>();
 	}
 	
-	public Compra(Date dataCompra, Double total, String cpf) {
+	public Compra(Date dataCompra, String cpf) {
 		this.dataCompra = dataCompra;
-		this.total = total;
 		this.cpf = cpf;
 		this.itens = new ArrayList<ItemCompra>();
+	}
+	
+	public Compra(Integer idCompra,String cpf ,Date dataCompra) {
+		this.idCompra = idCompra;
+		this.dataCompra = dataCompra;
+		this.cpf = cpf;
+		
 	}
 	
 	public Double getTotal() {
@@ -78,7 +84,8 @@ public class Compra {
     }	
 	@Override
 	public String toString() {
-		return "Compra [idCompra=" + idCompra + " valor total=" + total + ", dataCompra=" + sdf.format(dataCompra) + ", itens=" + itens + "]";
+		return "Compra [idCompra=" + idCompra + " valor total=" + total + ", dataCompra=" + sdf.format(dataCompra) +
+				", itens=" + itens + "cpf=" + this.cpf + "]";
 	}
 	
 	
