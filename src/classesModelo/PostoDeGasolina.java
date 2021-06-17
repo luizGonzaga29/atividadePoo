@@ -4,15 +4,25 @@ public class PostoDeGasolina {
 
 	private String cnpj;
 	private String razaoSocial;
+	private String nomeFantasia;
 	private Endereco enderecoPosto;
 	
 	public PostoDeGasolina() {}
 
-	public PostoDeGasolina(String cnpj, String razaoSocial, Endereco endereco) {
+	public PostoDeGasolina(String cnpj, String razaoSocial, String nomeFantasia ) {
 		super();
 		this.cnpj = cnpj;
 		this.razaoSocial = razaoSocial;
-		this.enderecoPosto = endereco;
+		this.nomeFantasia = nomeFantasia;
+		
+	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
 	}
 
 	public String getCnpj() {
