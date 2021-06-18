@@ -1,6 +1,7 @@
 package classesNegocio;
 
 
+
 import java.util.List;
 
 import classesModelo.Cliente;
@@ -14,6 +15,7 @@ public class ClienteNegocio {
 		
 	public void inserirCliente(Cliente cli) {
 		verificarCpf(cli.getCpf());
+		validarCampos(cli.getNome(), cli.getEmail());
 		if(cliPers.verificarSeExisteId(cli.getCpf()) != null) {
 			throw new ClienteExcecoes("Cliente já cadastrado!");
 		}else{
@@ -59,6 +61,17 @@ public class ClienteNegocio {
 		verificarCpf(cpf);
 		Cliente cli = cliPers.verificarSeExisteId(cpf);
 		return cli;
+		
+	}
+	
+	
+	public void validarCampos(String nome, String email) {
+		if(nome.equals("")) {
+			throw new ClienteExcecoes("Algo errado com o nome!");
+		}
+		if(email.equals("")) {
+			throw new ClienteExcecoes("Algo errado com o email!");
+		}
 		
 	}
 }

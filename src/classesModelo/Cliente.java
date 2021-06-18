@@ -54,8 +54,8 @@ public class Cliente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Cliente [dataNascimento=" + sdf.format(dataNascimento) + ", email=" + email + ", Nome=" + getNome()
-				+ ", Cpf=" + getCpf() + "]";
+		return "DataNascimento=" + sdf.format(dataNascimento) + ", Email=" + email + ", Nome=" + getNome()
+				+ ", Cpf=" + getCpf();
 	}
 
 	
