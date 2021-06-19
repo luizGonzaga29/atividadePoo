@@ -45,4 +45,6 @@ public class CompraNegocio {
 		compraPers.deletarCompra(id); 
 		
 	}
+	
+	
 }

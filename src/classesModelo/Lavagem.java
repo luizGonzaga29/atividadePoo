@@ -11,8 +11,8 @@ public class Lavagem extends Servico{
 		this.tipoLavagem = tipoLavagem;
 	}
 
-	public Lavagem(Double preco, Double desconto, String tipoServico, String tipoLavagem) {
-		super(preco, desconto, tipoServico);
+	public Lavagem(Double preco, Double desconto, String tipoLavagem) {
+		super(preco, desconto);
 		this.tipoLavagem = tipoLavagem;
 	}
 
@@ -26,8 +26,8 @@ public class Lavagem extends Servico{
 
 	@Override
 	public String toString() {
-		return "Lavagem [tipoLavagem=" + tipoLavagem + ", getPreco()=" + getPreco() + ", getDesconto()=" + getDesconto()
-				+ "]";
+		return "tipoLavagem=" + tipoLavagem + ", preço=" + getPreco() + ", desconto=" + getDesconto()
+				+ "%";
 	}
 	
 	

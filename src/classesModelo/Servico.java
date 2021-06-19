@@ -17,11 +17,11 @@ public class Servico {
 		this.tipoServico = tipoServico;
 	}
 	
-	public Servico(Double preco, Double desconto, String tipoServico) {
+	public Servico(Double preco, Double desconto) {
 		super();
 		this.preco = preco;
 		this.desconto = desconto;
-		this.tipoServico = tipoServico;
+		
 	}
 	
 	public Servico(Integer id, Double preco, Double desconto) {

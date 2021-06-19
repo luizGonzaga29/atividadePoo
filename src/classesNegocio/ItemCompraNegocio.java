@@ -13,4 +13,12 @@ private CriadorItemCompraNegocio criadorItemCompraNegocio;
 	public ItemCompra definirItemCompra(ItemCompra itemCompra, String cpf) {
 		return criadorItemCompraNegocio.criarServico().definirDesconto(itemCompra, cpf);
 	}
+	
+	public double definirValor(int cod) {
+		return criadorItemCompraNegocio.criarServico().definirServico(cod);
+	}
+	
+	public String definirNome(int cod) {
+		return criadorItemCompraNegocio.criarServico().definirServicoNome(cod);
+	}
 }

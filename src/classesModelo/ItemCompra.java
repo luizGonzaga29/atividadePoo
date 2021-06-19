@@ -74,8 +74,7 @@ public class ItemCompra {
 
 	@Override
 	public String toString() {
-		return "ItemCompra [idItemCompra=" + idItemCompra + ", servico=" + servico + ", idCompra=" + idCompra
-				+ ", preco=" + preco + ", desconto=" + desconto + ", quantidade=" + quantidade + "]";
+		return "servico=" + servico + ", quantidade=" + quantidade;
 	}
 
 	

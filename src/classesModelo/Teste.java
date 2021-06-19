@@ -33,9 +33,11 @@ public class Teste {
 		ClienteNegocio cliNeg = new ClienteNegocio();
 		List<Cliente> listaCli;
 		String cpf = "11111111112";
+		CombustivelNegocio cn = new CombustivelNegocio();
 		
 		//Cliente cli = new Cliente("Fulano", "22222222222", d, "fulano@fulano.com");
 		try {
+			
 			//listaCli = cliNeg.listarClientes();
 			//System.out.println(cliNeg.pesquisarCliente("22222222222"));
 			//cliNeg.deletarCliente("11111111112");
@@ -74,10 +76,10 @@ public class Teste {
 			compra.addItem(it1);
 			System.out.println(compra);*/
 			//38200759415
-			Compra compra = new Compra(d, cpf);
-			CompraNegocio cn = new CompraNegocio();
+			//Compra compra = new Compra(d, cpf);
+			//CompraNegocio cn = new CompraNegocio();
 			//cn.inserirCompra(compra);
-			cn.deletarCompra(25);
+			//cn.deletarCompra(25);
 			//System.out.println(cn.listarComprasPeloCpf(cpf));
 		}catch (ClienteExcecoes e) {
 			System.out.println(e.getMessage());

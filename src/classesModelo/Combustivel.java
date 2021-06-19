@@ -17,10 +17,16 @@ public class Combustivel extends Servico {
 	
 	public Combustivel(Double preco, Double desconto, String tipoServico, String tipoDeCombustivel,
 			Integer bomba ) {
-		super(preco, desconto, tipoServico);
+		super(preco, desconto);
 		this.tipoDeCombustivel = tipoDeCombustivel;
 		this.bomba = bomba;
 		
+	}
+	
+	public Combustivel(Double preco, Double desconto, String tipoDeCombustivel ) {
+		super(preco, desconto);
+		this.tipoDeCombustivel = tipoDeCombustivel;
+				
 	}
 
 
@@ -44,8 +50,7 @@ public class Combustivel extends Servico {
 	
 	@Override
 	public String toString() {
-		return "Combustivel [tipoDeCombustivel=" + tipoDeCombustivel + ", bomba=" + bomba  
-				+ ", getId()=" + getId() + ", getPreco()=" + getPreco() + ", getDesconto()=" + getDesconto() + "]";
+		return "tipoDeCombustivel=" + tipoDeCombustivel + " preço=" + getPreco() + ", desconto=" + getDesconto()+"%" ;
 	}
 	
 	

@@ -79,6 +79,16 @@ public class ClienteView extends JFrame {
 		contentPane.add(btnPesquisa);
 		
 		JButton btnCompra = new JButton("Compra");
+		btnCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CompraView cv = new CompraView();
+				cv.setLocationRelativeTo(null);
+				cv.setVisible(true);
+				cv.setResizable(false);
+				dispose();
+			}
+		});
 		btnCompra.setBounds(418, 211, 97, 25);
 		contentPane.add(btnCompra);
 	}
